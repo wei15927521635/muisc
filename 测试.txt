@@ -1,0 +1,1 @@
+﻿svn://192.168.20.1/bc8000/development/schoolplat/s1-1.1/client
