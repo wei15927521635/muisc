@@ -102,6 +102,36 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         }).catch(err => {
           console.log(err)
         })
+      }),
+      app.get('/api/song', (req, res) => {
+        let url = 'https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg'
+        axios.get(url, {
+          headers: {
+            referer: 'https://c.y.qq.com/',
+            host: 'c.y.qq.com'
+          },
+          params: req.query
+        }).then(response => {
+          let ret = response.data
+          res.json(ret)
+        }).catch(err => {
+          console.log(err)
+        })
+      }),
+      app.get('/api/search', (req, res) => {
+        let url = 'https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp'
+        axios.get(url, {
+          headers: {
+            referer: 'https://c.y.qq.com/',
+            host: 'c.y.qq.com'
+          },
+          params: req.query
+        }).then(response => {
+          let ret = response.data
+          res.json(ret)
+        }).catch(err => {
+          console.log(err)
+        })
       })
     }
   },
