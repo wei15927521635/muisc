@@ -27,6 +27,13 @@ const matutaions = {
   // 设置歌单列表当前播放内容
   [types.SET_CURRENT_INDEX](state, index) {
     state.currentIndex = index
+  },
+  // 设置热门推荐歌单
+  [types.SET_DISC](state, disc) {
+    state.disc = disc
+  },
+  [types.SET_TOP_LIST](state, list) {
+    state.topList = list
   }
 }
 export default matutaions

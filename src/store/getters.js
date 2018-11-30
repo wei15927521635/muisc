@@ -15,3 +15,6 @@ export const currentIndex = state => state.currentIndex // 当前播放内容
 export const currentSong = (state) => {
   return state.playList[state.currentIndex] || {}
 }
+
+export const disc = state => state.disc // 返回热门歌单数据
+export const topList = state => state.topList // 返回热门歌单数据

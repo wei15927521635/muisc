@@ -66,3 +66,39 @@ export const getMusicAdsress = (mid) => {
     console.log(err)
   })
 }
+
+export const getSongList = (disstid) => {
+  let url = '/api/song'
+  let data = Object.assign({}, commonParams, {
+    type: 1,
+    json: 1,
+    utf8: 1,
+    onlysong: 0,
+    disstid: disstid,
+    g_tk: 5381,
+    loginUin: 0,
+    hostUin: 0,
+    inCharset: 'utf8',
+    outCharset: 'utf-8',
+    notice: 0,
+    platform: 'yqq',
+    needNewCode: 0
+  })
+  return axios.get(url, {
+    params: data
+  }).then(res => {
+    return Promise.resolve(getcallback(res.data))
+  }).catch(err => {
+    console.log(err)
+  })
+}
+
+function getcallback(ret) {
+  let str
+  if (typeof ret === 'string') {
+    var reg = /^\w+\((.+)\)$/
+    var mathes = ret.match(reg)
+    str = JSON.parse(mathes[1])
+  }
+  return str
+}

@@ -11,3 +11,7 @@ export const SET_SEQUENCE_LSIT = 'SET_SEQUENCE_LSIT' // 设置歌单播放器顺
 export const SET_PLAY_MODE = 'SET_PLAY_MODE' // 设置歌单播放模式
 
 export const SET_CURRENT_INDEX = 'SET_CURRENT_INDEX' // 设置歌单列表当前播放内容
+
+export const SET_DISC = 'SET_DISC' // 设置歌单列表当前播放内容
+
+export const SET_TOP_LIST = 'SET_TOP_LIST' // 设置歌单列表当前播放内容

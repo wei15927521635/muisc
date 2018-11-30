@@ -57,7 +57,7 @@
           if (musicData.songid && musicData.albummid) {
             getMusicAdsress(musicData.songmid).then(suc => {
               const vkey = suc.data.items[0].vkey
-              ret.push(createSong(musicData, vkey))
+              ret.push(createSong(musicData, vkey, '117.34.59.14'))
             }).catch(err => {
               console.log(err)
             })

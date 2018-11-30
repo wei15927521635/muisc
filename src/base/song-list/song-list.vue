@@ -2,6 +2,9 @@
   <div class="song-list">
     <ul>
       <li @click="selectItem(song, index)" class="item" v-for="(song, index) in songs">
+        <div class="rank" v-show="rank">
+          <span :class="getRankCls(index)" v-text="getRankText(index)"></span>
+        </div>
         <div class="content">
           <h2 class="name">{{song.name}}</h2>
           <p class="desc">{{getDesc(song)}}</p>
@@ -17,6 +20,10 @@
       songs: {
         type: Array,
         default: []
+      },
+      rank: {
+        type: Boolean,
+        default: false
       }
     },
     computed: {
@@ -33,11 +40,22 @@
       },
       selectItem(item, index) {
         this.$emit('selectItem', item, index)
+      },
+      getRankCls(index) {
+        if (index <= 2) {
+          return `icon icon${index}`
+        } else {
+          return `text`
+        }
+      },
+      getRankText(index) {
+        if (index > 2) {
+          return index
+        }
       }
     }
   }
 </script>
-
 <style scoped lang="stylus" rel="stylesheet/stylus">
   @import "~common/stylus/variable"
   @import "~common/stylus/mixin"
@@ -61,11 +79,17 @@
           height: 24px
           background-size: 25px 24px
           &.icon0
-            // bg-image('first')
+            background-image: url('first@2x.png')
+            background-position: center center
+            // bg-image('first@2x.png')
           &.icon1
-            // bg-image('second')
+            background-image: url('second@2x.png')
+            background-position: center center
+            // bg-image('second@2x.png')
           &.icon2
-            // bg-image('third')
+            background-image: url('third@2x.png')
+            background-position: center center
+            // bg-image('third@2x.png')
         .text
           color: $color-theme
           font-size: $font-size-large

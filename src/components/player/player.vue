@@ -659,7 +659,7 @@
           font-size: 35px
           position: absolute
           left: -2px
-          top: -1px
+          top: -1.5px
 
   @keyframes rotate
     0%

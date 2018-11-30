@@ -17,7 +17,7 @@
     <scroll @scroll="scrollFn" :probe-type="probeType" :listenScroll="listenScroll" :data="songs" class="list" ref="list">
       <div class="song-list-wrapper">
         <p class="songe-title">歌曲 共{{songs.length}}首</p>
-        <song-list @selectItem="selectItemFn" :songs="songs"></song-list>
+        <song-list @selectItem="selectItemFn" :rank="rank" :songs="songs"></song-list>
       </div>
       <div class="loading-container" v-show="!songs.length">
         <loading></loading>
@@ -55,6 +55,10 @@
       title: {
         type: String,
         default: ''
+      },
+      rank: {
+        type: Boolean,
+        default: false
       }
     },
     data() {
