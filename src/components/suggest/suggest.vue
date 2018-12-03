@@ -1,5 +1,5 @@
 <template>
-  <div class="suggest">
+  <scroll class="suggest" :data="result">
     <ul class="suggest-list">
       <li class="suggest-item" v-for="item in result">
         <div class="icon">
@@ -10,16 +10,20 @@
         </div>
       </li>
     </ul>
-  </div>
+  </scroll>
 </template>
 <script>
   import { getSuggest } from 'api/search'
   import { ERR_OK } from 'api/config'
   import { createSong } from 'common/js/song'
   import { getMusicAdsress } from 'api/recommend'
+  import Scroll from 'base/scroll/scroll'
   // let num = 1
   const TYPE_SINGER = 'singer'
   export default {
+    components: {
+      Scroll
+    },
     props: {
       query: {
         type: String,
@@ -33,8 +37,7 @@
     data() {
       return {
         page: 1,
-        result: [],
-        retList: []
+        result: []
       }
     },
     methods: {
